@@ -1,0 +1,6 @@
+{
+    "interval": 5,
+    "line_token": "hoge",
+    "logdir": "/home/pi/work/log/log_twe",
+    "sensor_name": "button"
+}
