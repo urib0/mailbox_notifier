@@ -43,7 +43,7 @@ while(True):
             print(lines)
             # "bt=0001" or "bt=0000"
             data = lines.split(",")[1].split(":")[-1:][0]
-            if "0000" == data.split("=")[1] and log_old != lines:
+            if log_old != lines:
                 # メッセージ送信
                 ret = send_line_message(conf["line_token"],"\n荷物が届きました")
                 print(f"line notifier response:{ret}")
