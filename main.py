@@ -40,10 +40,11 @@ while(True):
         with open(filename,"r") as f:
             # "2022/11/06 21:34:25,::rc=80000000:lq=15:ct=002B:ed=8xxxxxxxx:id=0:ba=3080:bt=0000"
             lines = f.readlines()[-1:][0][:-1]
-        print(lines)
+#        print(lines)
+        bat = int(lines.split(":")[-2].split("=")[1])/1000 if "ba=" in lines else 0
         if log_old != lines:
             # メッセージ送信
-            ret = send_line_message(conf["line_token"],"\n荷物が届きました")
+            ret = send_line_message(conf["line_token"],f"\n荷物が届きました {bat}[V]")
             print(f"line notifier response:{ret}")
 
             # 検知休憩
